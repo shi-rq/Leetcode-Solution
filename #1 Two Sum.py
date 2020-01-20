@@ -69,3 +69,13 @@ class Solution:
         for n in range(0, len(loc_val_dis) - 1):
             if loc_val_dis[n][1] + loc_val_dis[n + 1][1] == target:
                 return [loc_val_dis[n][0], loc_val_dis[n + 1][0]]
+
+
+# 4 using functions
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        for i in range(len(nums)):
+            try : j = nums.index(target - nums[i])
+            except: continue
+            else:
+                if i != j : return[i, j]

@@ -20,7 +20,7 @@ assume that your function returns 0 when the reversed integer overflows.
 '''
 
 
-#1 Basic Method
+# 1 Basic Method
 class Solution:
     def reverse(self, x: int) -> int:
         digit = []
@@ -35,3 +35,15 @@ class Solution:
         sum *= pow(-1, flag)
         if sum < pow(-2, 31) or sum > pow(2, 31) - 1 : return 0
         return sum
+
+
+# 2 Short version. Converting the original number into string, and add from the first index
+class Solution:
+    def reverse(self, x: int) -> int:
+        sum = 0
+        flag = pow(-1, (x < 0))
+        x = str(x * flag)
+        for n in range(len(x)):
+            sum += int(x[n]) * pow(10, n)
+        if sum < pow(-2, 31) or sum > pow(2, 31) - 1 : return 0
+        return flag * sum

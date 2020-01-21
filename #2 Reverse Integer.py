@@ -47,3 +47,19 @@ class Solution:
             sum += int(x[n]) * pow(10, n)
         if sum < pow(-2, 31) or sum > pow(2, 31) - 1 : return 0
         return flag * sum
+
+# 3 O(/n)
+from math import log10
+class Solution:
+    def reverse(self, x: int) -> int:
+        if x > -10 and x < 10 : return x
+        absx = abs(x)
+        length = int(log10(abs(x))) + 1
+        for n in range(int(length / 2)):
+            rh = int(absx / 10**n) % 10
+            lh = int(absx / 10**(length-1-n)) % 10
+            absx += (lh-rh) * 10**n
+            absx += (rh-lh) * 10**(length-1-n)
+        if absx < pow(-2, 31) or absx > pow(2, 31) - 1 : return 0
+        if x < 0 : return -1 * absx
+        return absx

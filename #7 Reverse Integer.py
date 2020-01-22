@@ -49,6 +49,7 @@ class Solution:
         if sum < pow(-2, 31) or sum > pow(2, 31) - 1 : return 0
         return flag * sum
 
+
 # 3 O(n/2), operate on the original integer
 from math import log10
 class Solution:

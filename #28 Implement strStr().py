@@ -106,20 +106,7 @@ class Solution:
             return -1
 
 
-# 6 Z-algorithm o(n^2)
-class Solution:
-    def strStr(self, haystack: str, needle: str) -> int:
-        if not needle : return 0
-        n_h = needle + haystack
-        for i in range(len(needle), len(haystack)+1):
-            match = 0
-            while i + match < len(n_h) and n_h[match] == n_h[i+match]:
-                match += 1
-            if match >= len(needle) : return i - len(needle)
-        return -1
-
-
-# 7 Z-algorithm o(n) (部分例子有bug，还在研究)
+# 6 Z-algorithm o(n) (部分例子有bug，还在研究)
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
         if not needle : return 0

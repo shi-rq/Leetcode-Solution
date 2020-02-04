@@ -1,4 +1,5 @@
-def strStr(self, haystack: str, needle: str) -> int:
+# Rabin-Karp multiple substring
+def strStr(haystack, needle):
     len_needle = len(needle)
     len_haystack = len(haystack)
     needle_hash = hash(needle)

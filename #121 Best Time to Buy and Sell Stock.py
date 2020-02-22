@@ -63,3 +63,16 @@ class Solution:
             if prices[n] <= prices[n-1] and prices[n] <= prices[n+1]:
                 if max(prices[n+1:]) - prices[n] > profit: profit = max(prices[n+1:]) - prices[n]
         return profit
+
+
+# 4 o(n)
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        if not prices: return 0
+        profit = 0
+        lh = prices.pop(0)
+        for rh in prices:
+            if rh < lh : lh = rh
+            else:
+                if rh - lh > profit: profit = rh - lh
+        return profit

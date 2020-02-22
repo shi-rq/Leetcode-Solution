@@ -70,8 +70,8 @@ class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         if not prices: return 0
         profit = 0
-        lh = prices.pop(0)
-        for rh in prices:
+        lh = prices[0]
+        for rh in prices[1:]:
             if rh < lh : lh = rh
             else:
                 if rh - lh > profit: profit = rh - lh
